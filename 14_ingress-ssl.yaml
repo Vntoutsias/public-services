@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-ssl
+spec:
+  rules:
+  - host: www.public-services.site
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: flask-user-clip
+          servicePort: 5000
+      - path: /api/citizen
+        backend:
+          serviceName: flask-appointment-clip
+          servicePort: 5000
+      - path: /api/employee
+        backend:
+          serviceName: flask-appointment-clip
+          servicePort: 5000
+      - path: /api/add
+        backend:
+          serviceName: flask-appointment-clip
+          servicePort: 5000
+      - path: /api/logout
+        backend:
+          serviceName: flask-appointment-clip
+          servicePort: 5000
+      - path: /api/approve
+        backend:
+          serviceName: flask-appointment-clip
+          servicePort: 5000
+  tls:
+    - hosts: 
+      - www.public-services.site
+      secretName: public-services-tls-secret

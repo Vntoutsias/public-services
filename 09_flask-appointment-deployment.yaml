@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-appointment-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: flask-appointment
+  template:
+    metadata:
+      labels:
+        component: flask-appointment
+    spec:
+      containers:
+        - name: flask-appointment
+          image: 'vntoutsias/flask-appointment-v27'
+          ports:
+            - containerPort: 5000 
+          envFrom:
+            - configMapRef:
+                name: flask-appointment-config

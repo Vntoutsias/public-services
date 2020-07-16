@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-user-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: flask-user
+  template:
+    metadata:
+      labels:
+        component: flask-user
+    spec:
+      containers:
+        - name: flask-user
+          image: 'vntoutsias/flask-user-v25'
+          ports:
+            - containerPort: 5000 
+          envFrom:
+            - configMapRef:
+                name: flask-user-config

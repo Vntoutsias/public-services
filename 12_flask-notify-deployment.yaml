@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-notify-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: flask-notify
+  template:
+    metadata:
+      labels:
+        component: flask-notify
+    spec:
+      containers:
+        - name: flask-notify
+          image: 'vntoutsias/flask-notify-v20:latest'
+          ports:
+            - containerPort: 5000 
+          envFrom:
+            - configMapRef:
+                name: flask-notify-config
