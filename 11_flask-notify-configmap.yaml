@@ -5,15 +5,11 @@ metadata:
   labels:
     app: flask-notify
 data:
-  POSTGRES_DB: appdb
-  POSTGRES_USER: appuser
-  POSTGRES_PASSWORD: pass123
-  REDIS_SERVER: redis-server
-  REDIS_PASS: pass123
-  DB_HOST: psql-db
-  DB_PORT: "5432"
-  DB_USER: appuser
-  DB_PASSWORD: pass123
-  DB_NAME: appdb
+  MAIL_SERVER: "linux110.papaki.gr"
+  MAIL_PORT: "465"
+  MAIL_USERNAME: "info@public-services.site"
+  MAIL_PASSWORD: "pas!!123"
+  MAIL_USE_TLS: "False"
+  MAIL_USE_SSL: "True"
 
 
